@@ -66,8 +66,9 @@ def create_dotted_cards():
     draw_dark.rectangle([qr_x - 12, qr_y - 12, qr_x + qr_display_size + 12, qr_y + qr_display_size + 12], outline=(204, 164, 59), width=3)
     card_dark.paste(qr_resized_dark, (qr_x, qr_y), qr_resized_dark)
     
+    # Bottom info with updated phone numbers
     draw_dark.text((card_w // 2, 1340), "https://subhanallah-restraunt-menu.netlify.app", fill=(243, 208, 120), font=font_url, anchor="mm")
-    draw_dark.text((card_w // 2, 1420), "Call / WhatsApp: 0300-8800000 | 0345-7700000", fill=(255, 220, 90), font=font_contact, anchor="mm")
+    draw_dark.text((card_w // 2, 1420), "Call / WhatsApp: 0321-7752266 | 0332-7752266", fill=(255, 220, 90), font=font_contact, anchor="mm")
     draw_dark.text((card_w // 2, 1485), "Mandi Bahauddin Road, Phalia", fill=(175, 175, 175), font=font_addr, anchor="mm")
     
     out_dark_card = os.path.join(cards_dir, "subhan_allah_dotted_qr_card.png")
@@ -100,8 +101,9 @@ def create_dotted_cards():
     draw_gold.rectangle([qr_x - 12, qr_y - 12, qr_x + qr_display_size + 12, qr_y + qr_display_size + 12], outline=(14, 11, 7), width=3)
     card_gold.paste(qr_resized_gold, (qr_x, qr_y), qr_resized_gold)
     
+    # Bottom info with updated phone numbers
     draw_gold.text((card_w // 2, 1340), "https://subhanallah-restraunt-menu.netlify.app", fill=(80, 55, 10), font=font_url, anchor="mm")
-    draw_gold.text((card_w // 2, 1420), "Call / WhatsApp: 0300-8800000 | 0345-7700000", fill=(14, 11, 7), font=font_contact, anchor="mm")
+    draw_gold.text((card_w // 2, 1420), "Call / WhatsApp: 0321-7752266 | 0332-7752266", fill=(14, 11, 7), font=font_contact, anchor="mm")
     draw_gold.text((card_w // 2, 1485), "Mandi Bahauddin Road, Phalia", fill=(90, 70, 40), font=font_addr, anchor="mm")
     
     out_gold_card = os.path.join(cards_dir, "subhan_allah_dotted_qr_card_gold.png")

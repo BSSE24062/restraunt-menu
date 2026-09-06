@@ -2,6 +2,7 @@ import qrcode
 from PIL import Image, ImageDraw, ImageFont
 import cv2
 import numpy as np
+import os
 
 URL = "https://subhanallah-restraunt-menu.netlify.app"
 
@@ -15,6 +16,7 @@ def get_font(name, size):
 
 def generate_qr_assets():
     print(f"Generating QR Code suite for: {URL}")
+    os.makedirs("QR Codes/cards", exist_ok=True)
     
     # Base QR Code with 30% High Error Correction
     qr_maker = qrcode.QRCode(
@@ -55,8 +57,8 @@ def generate_qr_assets():
     draw_dark.rectangle([6, 6, qr_w - 6, qr_h - 6], outline=(218, 178, 62, 255), width=3)
     draw_dark.rectangle([12, 12, qr_w - 12, qr_h - 12], outline=(255, 235, 140, 100), width=1)
     
-    qr_dark.save("menu_qr_code.png", "PNG", optimize=True)
-    print(f"Saved menu_qr_code.png")
+    qr_dark.save("QR Codes/menu_qr_code.png", "PNG", optimize=True)
+    print(f"Saved QR Codes/menu_qr_code.png")
 
     # -------------------------------------------------------------
     # 2. IMPERIAL GOLD QR CODE
@@ -70,8 +72,8 @@ def generate_qr_assets():
     draw_gold = ImageDraw.Draw(qr_gold)
     draw_gold.rectangle([6, 6, qr_w - 6, qr_h - 6], outline=(12, 10, 7, 255), width=3)
     
-    qr_gold.save("menu_qr_code_gold.png", "PNG", optimize=True)
-    print(f"Saved menu_qr_code_gold.png")
+    qr_gold.save("QR Codes/menu_qr_code_gold.png", "PNG", optimize=True)
+    print(f"Saved QR Codes/menu_qr_code_gold.png")
 
     # -------------------------------------------------------------
     # 3. PRINTABLE TABLE CARD 1: MIDNIGHT BLACK & GOLD EDITION
@@ -127,13 +129,13 @@ def create_card_dark(qr_img):
     draw.rectangle([qr_x - 12, qr_y - 12, qr_x + qr_display_size + 12, qr_y + qr_display_size + 12], outline=(204, 164, 59), width=3)
     card.paste(qr_resized, (qr_x, qr_y), qr_resized)
     
-    # Bottom info
+    # Bottom info with updated phone numbers
     draw.text((card_w // 2, 1340), "https://subhanallah-restraunt-menu.netlify.app", fill=(243, 208, 120), font=font_url, anchor="mm")
-    draw.text((card_w // 2, 1420), "Call / WhatsApp: 0300-8800000 | 0345-7700000", fill=(255, 220, 90), font=font_contact, anchor="mm")
+    draw.text((card_w // 2, 1420), "Call / WhatsApp: 0321-7752266 | 0332-7752266", fill=(255, 220, 90), font=font_contact, anchor="mm")
     draw.text((card_w // 2, 1485), "Mandi Bahauddin Road, Phalia", fill=(175, 175, 175), font=font_addr, anchor="mm")
     
-    card.save("subhan_allah_menu_qr_card.png", "PNG", optimize=True)
-    print("Saved subhan_allah_menu_qr_card.png")
+    card.save("QR Codes/cards/subhan_allah_menu_qr_card.png", "PNG", optimize=True)
+    print("Saved QR Codes/cards/subhan_allah_menu_qr_card.png")
 
 def create_card_gold(qr_img):
     card_w = 1200
@@ -179,13 +181,13 @@ def create_card_gold(qr_img):
     draw.rectangle([qr_x - 12, qr_y - 12, qr_x + qr_display_size + 12, qr_y + qr_display_size + 12], outline=(14, 11, 7), width=3)
     card.paste(qr_resized, (qr_x, qr_y), qr_resized)
     
-    # Bottom info
+    # Bottom info with updated phone numbers
     draw.text((card_w // 2, 1340), "https://subhanallah-restraunt-menu.netlify.app", fill=(80, 55, 10), font=font_url, anchor="mm")
-    draw.text((card_w // 2, 1420), "Call / WhatsApp: 0300-8800000 | 0345-7700000", fill=(14, 11, 7), font=font_contact, anchor="mm")
+    draw.text((card_w // 2, 1420), "Call / WhatsApp: 0321-7752266 | 0332-7752266", fill=(14, 11, 7), font=font_contact, anchor="mm")
     draw.text((card_w // 2, 1485), "Mandi Bahauddin Road, Phalia", fill=(90, 70, 40), font=font_addr, anchor="mm")
     
-    card.save("subhan_allah_menu_qr_card_gold.png", "PNG", optimize=True)
-    print("Saved subhan_allah_menu_qr_card_gold.png")
+    card.save("QR Codes/cards/subhan_allah_menu_qr_card_gold.png", "PNG", optimize=True)
+    print("Saved QR Codes/cards/subhan_allah_menu_qr_card_gold.png")
 
 if __name__ == "__main__":
     generate_qr_assets()
