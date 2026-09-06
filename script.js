@@ -332,41 +332,7 @@ const MENU_DATA = {
       }
     ]
   },
-  // Category 6: NOODLES (Uses chowmein array but distinct category in sequence)
-  "noodles": {
-    nameEn: "Noodles",
-    nameUr: "نوڈلز",
-    image: "asset/chicken-chaomein.jpg",
-    items: [
-      {
-        id: "noodle_chicken",
-        nameEn: "Chicken Chowmain",
-        nameUr: "چکن چومین",
-        descEn: "Delectable wok-tossed noodles cooked with julienned chicken, colorful vegetables, and aromatic seasoning.",
-        descUr: "چکن کے ٹکڑوں اور سبزیوں کے ساتھ بنے ہوئے خوش ذائقہ روایتی نوڈلز۔",
-        price: 1000,
-        image: "asset/chicken-chaomein.jpg",
-        servings: [
-          { labelEn: "Single Serving", labelUr: "سنگل سرونگ", factor: 1.0 },
-          { labelEn: "Double Serving", labelUr: "ڈبل سرونگ", factor: 1.8 }
-        ]
-      },
-      {
-        id: "noodle_veg",
-        nameEn: "Vegetable Chowmain",
-        nameUr: "ویجیٹیبل چومین",
-        descEn: "A vegetarian delight. Fluffy stir-fried noodles seasoned with Chinese herbs, sesame oil, and crunchy vegetables.",
-        descUr: "بند گوبھی، گاجر اور مٹر کے ساتھ دھیمی آنچ پر تیا کردہ لذید نوڈلز۔",
-        price: 900,
-        image: "asset/chicken-chaomein.jpg",
-        servings: [
-          { labelEn: "Single Serving", labelUr: "سنگل سرونگ", factor: 1.0 },
-          { labelEn: "Double Serving", labelUr: "ڈبل سرونگ", factor: 1.8 }
-        ]
-      }
-    ]
-  },
-  // Category 7: PAKISTANI DRY ITEMS
+  // Category 6: PAKISTANI DRY ITEMS
   "pakistani_dry": {
     nameEn: "Pakistani Dry Items",
     nameUr: "پاکستانی ڈرائی",
