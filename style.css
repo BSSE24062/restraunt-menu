@@ -424,7 +424,7 @@ header {
   flex-direction: column;
   gap: 0.55rem;
   max-width: 700px;
-  margin-bottom: 2.5rem;
+  margin-bottom: 0.6rem;
 }
 
 .hero-subtitle-en {
@@ -455,7 +455,7 @@ header {
   font-size: 0.92rem;
   font-weight: 800;
   letter-spacing: 1.6px;
-  padding: 0.8rem 2.2rem;
+  padding: 0.78rem 2.2rem;
   border-radius: 30px;
   border: 1px solid rgba(255, 255, 255, 0.65);
   box-shadow: 0 4px 22px rgba(212, 175, 55, 0.6), 0 0 18px rgba(243, 208, 120, 0.45);
@@ -463,7 +463,8 @@ header {
   position: relative;
   z-index: 10;
   overflow: hidden;
-  margin-top: 0.6rem;
+  margin-top: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
 .hero-cta-btn::after {
