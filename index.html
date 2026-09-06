@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Subhan Allah Restaurant Menu - Phalia</title>
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Official bilingual digital menu of Subhan Allah Restaurant, Phalia, Mandi Bahauddin. Experience premium, luxury dining with authentic Pakistani, BBQ, Chinese, and Tandoori dishes.">
+  <meta name="keywords" content="Subhan Allah Restaurant Phalia, Mandi Bahauddin Restaurant, Subhan Allah Menu, Phalia Food, Pakistani BBQ, Chinese Food Phalia">
+  
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Sleek Luxury Header Navigation -->
+  <header>
+    <div class="nav-container">
+      <a href="#hero-slider-section" class="brand-left">
+        <img src="logo.jpeg" alt="Subhan Allah Restaurant Logo" class="logo-img" id="nav-logo">
+        <div class="brand-text">
+          <div class="brand-title-row">
+            <h1 class="brand-title-en">SUBHAN ALLAH</h1>
+            <span class="brand-divider">✦</span>
+            <span class="brand-title-ur urdu-text">سبحان اللہ</span>
+          </div>
+          <p class="brand-subtitle">
+            <span class="brand-loc-en">PHALIA</span>
+            <span class="gold-dot">•</span>
+            <span class="brand-loc-ur urdu-text">پھالیہ</span>
+            <span class="brand-tagline-badge">Luxury Dining & Takeaway</span>
+          </p>
+        </div>
+      </a>
+      
+      <div class="header-right">
+        <a href="tel:03008800000" class="header-phone-pill" title="Order / Call Subhan Allah">
+          <i class="fa-solid fa-phone-volume"></i>
+          <span class="phone-text">0300-8800000</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section with auto-sliding banner -->
+  <section class="hero" id="hero-slider-section">
+    <div class="banner-slider" id="banner-slider">
+      <!-- Slides are dynamically injected via script.js -->
+    </div>
+    <div class="hero-overlay">
+      <div class="hero-badge">✦ SUBHAN ALLAH RESTAURANT • سبحان اللہ ریسٹورنٹ ✦</div>
+      <h2 class="hero-title royal-title">Royal Culinary Art</h2>
+      <h3 class="hero-title-ur urdu-text">شاہی ذائقوں کی لاجواب روایت</h3>
+      
+      <div class="hero-subtitle-wrap">
+        <p class="hero-subtitle-en">The finest dining experience in Phalia & Mandi Bahauddin</p>
+        <p class="hero-subtitle-ur urdu-text">پھالیہ اور منڈی بہاؤالدین کا سب سے بہترین اور لذیذ ترین ریسٹورنٹ</p>
+      </div>
+      
+      <a href="#menu-categories" class="hero-cta-btn">
+        <i class="fa-solid fa-utensils"></i>
+        <span>Explore Menu / مینو دیکھیں</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Main Menu Grid Section -->
+  <section class="menu-section" id="menu-categories">
+    <div class="section-intro">
+      <div class="section-badge">CULINARY EXCELLENCE</div>
+      <h2 class="royal-title section-title">
+        Our Royal Menu <span class="gold-divider">|</span> <span class="urdu-title urdu-text">ہمارا شاہی مینو</span>
+      </h2>
+      <div class="section-desc-wrap">
+        <p class="section-desc-en">Tap on a category card below to reveal our fresh dishes, then tap any dish to view mouth-watering details and custom portion pricing.</p>
+        <p class="section-desc-ur urdu-text">ڈشز کی تفصیلات دیکھنے اور سرونگ کے مطابق قیمت منتخب کرنے کے لیے متعلقہ کارڈ پر ٹیپ کریں۔</p>
+      </div>
+    </div>
+
+    <!-- 18 Categories in the exact sequence specified by sequence.jpeg -->
+    <div class="categories-grid">
+      
+      <!-- 1. Starters -->
+      <div class="category-card" data-category="starters" id="cat-starters">
+        <div class="category-img-container">
+          <img src="asset/chicken dhaka.jpg" alt="Starters Category" class="category-img">
+        </div>
+        <div class="category-info">
+          <span class="category-title-en">1. Starters</span>
+          <span class="category-title-ur urdu-text">1۔ سٹارٹر</span>
+        </div>
+      </div>
+
+      <!-- 2. Soup -->
+      <div class="category-card" data-category="soup" id="cat-soup">
+        <div class="category-img-container">
+          <img src="asset/soup2.jpg" alt="Soup Category" class="category-img">
+        </div>
+        <div class="category-info">
+          <span class="category-title-en">2. Soup</span>
+          <span class="category-title-ur urdu-text">2۔ سوپ</span>
+        </div>
+      </div>
+
+      <!-- 3. Tawa (Coming Soon) -->
+      <div class="category-card" data-category="tawa" id="cat-tawa">
+        <span class="coming-soon-badge">COMING SOON</span>
+        <div class="category-img-container">
+          <img src="asset/chanp.jpg" alt="Tawa Category" class="category-img" style="filter: grayscale(80%) brightness(0.5);">
+        </div>
+        <div class="category-info">
+          <span class="category-title-en">3. Tawa</span>
+          <span class="category-title-ur urdu-text">3۔ توا اسپیشل</span>
+        </div>
+      </div>
+
+      <!-- 4. Chinese Rice -->
+      <div class="category-card" data-category="chinese_rice" id="cat-chinese-rice">
+        <div class="category-img-container">
+          <img src="asset/chinese rice.jpg" alt="Chinese Rice Category" class="category-img">
+        </div>
+        <div class="category-info">
+          <span class="category-title-en">4. Chinese Rice</span>
+          <span class="category-title-ur urdu-text">4۔ چائنیز رائس</span>
+        </div>
+      </div>
+
+      <!-- 5. Chinese Chowmein -->
+      <div class="category-card" data-category="chinese_chowmein" id="cat-chinese-chowmein">
+        <div class="category-img-container">
+          <img src="asset/chicken-chaomein.jpg" alt="Chinese Chowmein Category" class="category-img">
+        </div>
+        <div class="category-info">
+          <span class="category-title-en">5. Chinese Chowmein</span>
+          <span class="category-title-ur urdu-text">5۔ چائنیز چومین</span>
+        </div>
+      </div>
+
+      <!-- 6. Noodle -->
+      <div class="category-card" data-category="noodles" id="cat-noodle">
+        <div class="category-img-container">
+          <img src="asset/chicken-chaomein.jpg" alt="Noodles Category" class="category-img">
+        </div>
+        <div class="category-info">
+          <span class="category-title-en">6. Noodles</span>
+          <span class="category-title-ur urdu-text">6۔ نوڈلز</span>
+        </div>
+      </div>
+
+      <!-- 7. Pakistani Dry Item -->
+      <div class="category-card" data-category="pakistani_dry" id="cat-pakistani-dry">
+        <div class="category-img-container">
+          <img src="asset/chicken-roast.jpg" alt="Pakistani Dry Items Category" class="category-img">
+        </div>
+        <div class="category-info">
+          <span class="category-title-en">7. Pakistani Dry Items</span>
+          <span class="category-title-ur urdu-text">7۔ پاکستانی ڈرائی</span>
+        </div>
+      </div>
+
+      <!-- 8. Mutton Gravies -->
+      <div class="category-card" data-category="mutton_gravies" id="cat-mutton-gravies">
+        <div class="category-img-container">
+          <img src="asset/mutton karahi.jpg" alt="Mutton Gravies Category" class="category-img">
+        </div>
+        <div class="category-info">
+          <span class="category-title-en">8. Mutton Gravies</span>
+          <span class="category-title-ur urdu-text">8۔ مٹن گریوی</span>
+        </div>
+      </div>
+
+      <!-- 9. Chinese Gravy With Rice -->
+      <div class="category-card" data-category="chinese_with_rice" id="cat-chinese-with-rice">
+        <div class="category-img-container">
+          <img src="asset/Chicken Manchurian.jpg" alt="Chinese with Rice Category" class="category-img">
+        </div>
+        <div class="category-info">
+          <span class="category-title-en">9. Chinese with Rice</span>
+          <span class="category-title-ur urdu-text">9۔ چائنیز گریوی چاول کے ساتھ</span>
+        </div>
+      </div>
+
+      <!-- 10. Pakistani Rice -->
+      <div class="category-card" data-category="pakistani_rice" id="cat-pakistani-rice">
+        <div class="category-img-container">
+          <img src="asset/Mutton biriyani.jpg" alt="Pakistani Rice Category" class="category-img">
+        </div>
+        <div class="category-info">
+          <span class="category-title-en">10. Pakistani Rice</span>
+          <span class="category-title-ur urdu-text">10۔ پاکستانی رائس</span>
+        </div>
+      </div>
+
+      <!-- 11. Chicken Gravies (Chi Gravies) -->
+      <div class="category-card" data-category="chicken_gravies" id="cat-chicken-gravies">
+        <div class="category-img-container">
+          <img src="asset/chicken karahi.jpg" alt="Chicken Gravies Category" class="category-img">
+        </div>
+        <div class="category-info">
+          <span class="category-title-en">11. Chicken & Chinese Gravies</span>
+          <span class="category-title-ur urdu-text">11۔ چکن گریوی</span>
+        </div>
+      </div>
+
+      <!-- 12. Bar-B-Q -->
+      <div class="category-card" data-category="barbq" id="cat-barbq">
+        <div class="category-img-container">
+          <img src="asset/kabab bbq.jpg" alt="Bar-B-Q Category" class="category-img">
+        </div>
+        <div class="category-info">
+          <span class="category-title-en">12. Bar-B-Q</span>
+          <span class="category-title-ur urdu-text">12۔ باربی کیو</span>
+        </div>
+      </div>
+
+      <!-- 13. Salad Bar -->
+      <div class="category-card" data-category="salad_bar" id="cat-salad-bar">
+        <div class="category-img-container">
+          <img src="asset/salad.jpg" alt="Salad Bar Category" class="category-img">
+        </div>
+        <div class="category-info">
+          <span class="category-title-en">13. Salad Bar</span>
+          <span class="category-title-ur urdu-text">13۔ سلاد بار</span>
+        </div>
+      </div>
+
+      <!-- 14. Cold Drinks -->
+      <div class="category-card" data-category="cold_drinks" id="cat-cold-drinks">
+        <div class="category-img-container">
+          <img src="asset/cold-drink.jpg" alt="Cold Drinks Category" class="category-img">
+        </div>
+        <div class="category-info">
+          <span class="category-title-en">14. Cold Drinks</span>
+          <span class="category-title-ur urdu-text">14۔ کولڈ ڈرنکس</span>
+        </div>
+      </div>
+
+      <!-- 15. Tandoor -->
+      <div class="category-card" data-category="tandoor" id="cat-tandoor">
+        <div class="category-img-container">
+          <img src="asset/naan.jpg" alt="Tandoor Category" class="category-img">
+        </div>
+        <div class="category-info">
+          <span class="category-title-en">15. Tandoor</span>
+          <span class="category-title-ur urdu-text">15۔ تندور</span>
+        </div>
+      </div>
+
+      <!-- 16. Sweet Bar -->
+      <div class="category-card" data-category="sweet_bar" id="cat-sweet-bar">
+        <div class="category-img-container">
+          <img src="asset/ice-cream.jpg" alt="Sweet Bar Category" class="category-img">
+        </div>
+        <div class="category-info">
+          <span class="category-title-en">16. Sweet Bar</span>
+          <span class="category-title-ur urdu-text">16۔ سویٹ بار</span>
+        </div>
+      </div>
+
+      <!-- 17. Fast Food -->
+      <div class="category-card" data-category="fast_food" id="cat-fast-food">
+        <div class="category-img-container">
+          <img src="asset/sandwich.jpg" alt="Fast Food Category" class="category-img">
+        </div>
+        <div class="category-info">
+          <span class="category-title-en">17. Fast Food</span>
+          <span class="category-title-ur urdu-text">17۔ فاسٹ فوڈ</span>
+        </div>
+      </div>
+
+      <!-- 18. Hot Bar -->
+      <div class="category-card" data-category="hot_bar" id="cat-hot-bar">
+        <div class="category-img-container">
+          <img src="asset/Tea & Coffee.jpg" alt="Hot Bar Category" class="category-img">
+        </div>
+        <div class="category-info">
+          <span class="category-title-en">18. Hot Bar</span>
+          <span class="category-title-ur urdu-text">18۔ ہاٹ بار</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Revealed Dynamic Submenu Section (Slides down below the grid) -->
+    <div class="submenu-section" id="submenu-section">
+      <div class="submenu-header">
+        <div class="submenu-header-title">
+          <div class="submenu-title-combo">
+            <h3 id="submenu-title-en">Category Title</h3>
+            <span class="submenu-title-divider">✦</span>
+            <p id="submenu-title-ur" class="urdu-text">کیٹیگری کا نام</p>
+          </div>
+        </div>
+        <!-- Inner tabs container (for Subcategories, e.g. Pakistani vs Chinese Gravies) -->
+        <div class="inner-tabs" id="inner-tabs-container"></div>
+      </div>
+
+      <!-- Items Grid -->
+      <div class="menu-items-grid" id="menu-items-grid">
+        <!-- Injected via script.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Dish Detail Popup Modal (Pop style spring animation) -->
+  <div class="modal-overlay" id="dish-modal">
+    <div class="modal-content">
+      <div class="close-modal-btn" id="close-modal-btn" title="Close">
+        <i class="fa-solid fa-xmark"></i>
+      </div>
+      <div class="modal-img-container">
+        <img src="" alt="Dish Image" class="modal-img" id="modal-dish-img">
+      </div>
+      <div class="modal-body">
+        <div class="modal-title-section">
+          <h3 class="modal-title-en" id="modal-title-en">Dish Name</h3>
+          <p class="modal-title-ur urdu-text" id="modal-title-ur">ڈش کا نام</p>
+        </div>
+        
+        <div class="modal-desc-section">
+          <p class="modal-desc-en" id="modal-desc-en">Delectable dish cooked with special ingredients and fine recipes.</p>
+          <p class="modal-desc-ur urdu-text" id="modal-desc-ur">روایتی طریقے اور بہترین مصالحوں کے ساتھ تیار کردہ لذیذ ڈش۔</p>
+        </div>
+        
+        <div class="modal-pricing-section">
+          <!-- Servings selection dropdown container -->
+          <div id="modal-serving-selector-container"></div>
+          <div class="modal-price-display">
+            <span class="modal-price-label">Price / قیمت</span>
+            <span class="modal-price-val" id="modal-price-val">Rs. 0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Section -->
+  <footer>
+    <img src="logo.jpeg" alt="Subhan Allah Logo" class="footer-logo">
+    <h3 class="footer-heading">Subhan Allah Restaurant</h3>
+    <p class="footer-heading-ur urdu-text">سبحان اللہ ریسٹورنٹ</p>
+    <div class="footer-sub">
+      <span>Phalia, Mandi Bahauddin</span> • <span class="urdu-text">پھالیہ، منڈی بہاؤالدین</span>
+    </div>
+    
+    <div class="footer-info">
+      <div class="footer-info-item">
+        <i class="fa-solid fa-map-location-dot"></i>
+        <span>Mandi Bahauddin Rd, Phalia • <span class="urdu-text">منڈی بہاؤالدین روڈ، پھالیہ</span></span>
+      </div>
+      <div class="footer-info-item">
+        <i class="fa-solid fa-phone-volume"></i>
+        <a href="tel:03008800000" style="color: inherit; text-decoration: none;">0300-8800000</a> / <a href="tel:03457700000" style="color: inherit; text-decoration: none;">0345-7700000</a>
+      </div>
+      <div class="footer-info-item">
+        <i class="fa-solid fa-clock"></i>
+        <span>12:00 PM - 02:00 AM • <span class="urdu-text">دوپہر 12:00 تا رات 02:00 بجے</span></span>
+      </div>
+    </div>
+    
+    <p class="footer-copyright">
+      &copy; 2026 Subhan Allah Restaurant Phalia. All rights reserved. | Crafted with Royal Aesthetics.
+    </p>
+  </footer>
+
+  <!-- Core Script File -->
+  <script src="script.js"></script>
+</body>
+</html>
