@@ -49,25 +49,30 @@
     </div>
   </header>
 
-  <!-- Hero Section with auto-sliding banner -->
+  <!-- Hero Section with dynamic auto-sliding banner -->
   <section class="hero" id="hero-slider-section">
     <div class="banner-slider" id="banner-slider">
       <!-- Slides are dynamically injected via script.js -->
     </div>
     <div class="hero-overlay">
-      <div class="hero-badge">✦ SUBHAN ALLAH RESTAURANT • سبحان اللہ ریسٹورنٹ ✦</div>
-      <h2 class="hero-title royal-title">Royal Culinary Art</h2>
-      <h3 class="hero-title-ur urdu-text">شاہی ذائقوں کی لاجواب روایت</h3>
-      
-      <div class="hero-subtitle-wrap">
-        <p class="hero-subtitle-en">The finest dining experience in Phalia & Mandi Bahauddin</p>
-        <p class="hero-subtitle-ur urdu-text">پھالیہ اور منڈی بہاؤالدین کا سب سے بہترین اور لذیذ ترین ریسٹورنٹ</p>
+      <div class="hero-content-wrap slide-in" id="hero-content-wrap">
+        <div class="hero-badge" id="hero-badge">✦ SIGNATURE SPECIAL • شاہی کڑاہی ✦</div>
+        <h2 class="hero-title royal-title" id="hero-title-en">Authentic Desi Karahi</h2>
+        <h3 class="hero-title-ur urdu-text" id="hero-title-ur">اصیل دیسی کڑاہی اور ہانڈی کے لذیذ ذائقے</h3>
+        
+        <div class="hero-subtitle-wrap">
+          <p class="hero-subtitle-en" id="hero-subtitle-en">Cooked fresh in pure butter with rich aromatic Lahori & Shinwari spices</p>
+          <p class="hero-subtitle-ur urdu-text" id="hero-subtitle-ur">تازہ مکھن اور خاص روایتی مصالحوں کے ساتھ تیار کردہ لاجواب کڑاہی</p>
+        </div>
+        
+        <a href="#menu-categories" class="hero-cta-btn">
+          <i class="fa-solid fa-utensils"></i>
+          <span>Explore Menu / مینو دیکھیں</span>
+        </a>
       </div>
-      
-      <a href="#menu-categories" class="hero-cta-btn">
-        <i class="fa-solid fa-utensils"></i>
-        <span>Explore Menu / مینو دیکھیں</span>
-      </a>
+
+      <!-- Slide indicator progress dots -->
+      <div class="hero-slider-dots" id="hero-slider-dots"></div>
     </div>
   </section>
 

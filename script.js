@@ -1737,76 +1737,164 @@ const MENU_DATA = {
   }
 };
 
-// 2. HERO SLIDER CONFIGURATION
-const SLIDER_IMAGES = [
-  "asset/chicken karahi.jpg",
-  "asset/Mutton biriyani.jpg",
-  "asset/grilled lamb chops.jpg",
-  "asset/chinese rice.jpg",
-  "asset/soup2.jpg"
+// 2. DYNAMIC HERO SLIDER WITH SYNCHRONIZED BILINGUAL TEXT & KEN BURNS EFFECT
+const HERO_SLIDES = [
+  {
+    image: "asset/chicken karahi.jpg",
+    badge: "✦ SIGNATURE SPECIAL • شاہی کڑاہی ✦",
+    titleEn: "Authentic Desi Karahi",
+    titleUr: "اصیل دیسی کڑاہی اور ہانڈی کے لذیذ ذائقے",
+    subEn: "Cooked fresh in pure butter with rich aromatic Lahori & Shinwari spices",
+    subUr: "تازہ مکھن اور خاص روایتی مصالحوں کے ساتھ تیار کردہ لاجواب کڑاہی"
+  },
+  {
+    image: "asset/Mutton biriyani.jpg",
+    badge: "✦ CHEF'S MASTERPIECE • شاہی دسترخوان ✦",
+    titleEn: "Royal Mutton Biryani",
+    titleUr: "خوشبودار شاہی مٹن دم بریانی",
+    subEn: "Fragrant long-grain basmati infused with tender, juicy mutton & saffron",
+    subUr: "زعفران اور اصلی مصالحوں میں دم کی گئی لاجواب اور لذیذ بریانی"
+  },
+  {
+    image: "asset/grilled lamb chops.jpg",
+    badge: "✦ LIVE CHARCOAL GRILL • تازہ باربی کیو ✦",
+    titleEn: "Sizzling Charcoal BBQ",
+    titleUr: "گرما گرم اور رسیلی باربی کیو ورائٹی",
+    subEn: "Smoky tender Malai Boti, Seekh Kababs & Lamb Chops grilled to perfection",
+    subUr: "دھیمی آنچ پر کوئلوں پر پکی ملائی بوٹی، سیخ کباب اور لذیذ چانپیں"
+  },
+  {
+    image: "asset/chinese rice.jpg",
+    badge: "✦ ORIENTAL DELIGHT • چائنیز اسپیشل ✦",
+    titleEn: "Chinese Gravies & Chowmein",
+    titleUr: "چائنیز گریوی، فرائیڈ رائس اور چومین",
+    subEn: "Wok-tossed spicy Manchurian, crispy Sesame Chicken & egg fried rice",
+    subUr: "تازہ سبزیوں، ساسز اور چکن کے ساتھ تیار کردہ لذیذ چائنیز پکوان"
+  },
+  {
+    image: "asset/soup2.jpg",
+    badge: "✦ FRESH STARTERS • گرم سوپ اور سٹارٹرز ✦",
+    titleEn: "Subhan Allah Special Soup",
+    titleUr: "گرما گرم شاہی سوپ اور سٹارٹرز",
+    subEn: "Hearty, rich broth brimming with shredded chicken, shrimp & fresh herbs",
+    subUr: "چکن ریشہ، جھینگوں اور کرسپی مصالحوں کے ساتھ تیار کردہ گرم سوپ"
+  },
+  {
+    image: "asset/chanp.jpg",
+    badge: "✦ COMING SOON • جلد آرہا ہے ✦",
+    titleEn: "Tawa Grill & Karahi",
+    titleUr: "توا کڑاہی اور توا پیسز کی شاندار ورائٹی",
+    subEn: "Exciting live tawa delicacies arriving soon to elevate your dining",
+    subUr: "توا چکن، توا قیمہ اور توا پیسز بہت جلد آپ کی خدمت میں"
+  }
 ];
-const TAWA_IMAGE = "asset/chanp.jpg"; // Representation for Tawa category
 
 let currentSlideIndex = 0;
-let changeCounter = 0; // Tracks number of image transitions
+let slideIntervalId = null;
 
 function initHeroSlider() {
   const sliderContainer = document.getElementById("banner-slider");
+  const dotsContainer = document.getElementById("hero-slider-dots");
   if (!sliderContainer) return;
 
-  // Create normal slides
-  SLIDER_IMAGES.forEach((src, idx) => {
+  sliderContainer.innerHTML = "";
+  if (dotsContainer) dotsContainer.innerHTML = "";
+
+  // Create slides and indicator dots
+  HERO_SLIDES.forEach((slideData, idx) => {
     const slide = document.createElement("div");
-    slide.className = "slide";
-    slide.style.backgroundImage = `url('${src}')`;
-    if (idx === 0) slide.classList.add("active");
+    slide.className = `slide ${idx === 0 ? "active" : ""}`;
+    slide.style.backgroundImage = `url('${slideData.image}')`;
     sliderContainer.appendChild(slide);
+
+    if (dotsContainer) {
+      const dot = document.createElement("button");
+      dot.className = `hero-dot ${idx === 0 ? "active" : ""}`;
+      dot.setAttribute("aria-label", `Slide ${idx + 1}`);
+      dot.addEventListener("click", () => {
+        goToSlide(idx);
+        restartSlideTimer();
+      });
+      dotsContainer.appendChild(dot);
+    }
   });
 
-  // Create Tawa slide
-  const tawaSlide = document.createElement("div");
-  tawaSlide.className = "slide";
-  tawaSlide.id = "tawa-special-slide";
-  tawaSlide.style.backgroundImage = `url('${TAWA_IMAGE}')`;
-  
-  // Add "Coming Soon" banner to Tawa slide
-  const tawaOverlay = document.createElement("div");
-  tawaOverlay.className = "tawa-overlay-text";
-  tawaOverlay.innerHTML = `
-    <h3>Tawa Grill Special • توا اسپیشل</h3>
-    <p>Coming Soon • <span class="urdu-text">جلد آ رہا ہے</span></p>
-  `;
-  tawaSlide.appendChild(tawaOverlay);
-  sliderContainer.appendChild(tawaSlide);
+  // Apply initial slide content
+  updateHeroText(0, false);
 
-  // Auto transition loop
-  setInterval(transitionSlides, 2700);
+  // Auto transition loop (4.2 seconds interval)
+  startSlideTimer();
 }
 
-function transitionSlides() {
+function startSlideTimer() {
+  if (slideIntervalId) clearInterval(slideIntervalId);
+  slideIntervalId = setInterval(nextSlide, 4200);
+}
+
+function restartSlideTimer() {
+  startSlideTimer();
+}
+
+function goToSlide(targetIndex) {
   const slides = document.querySelectorAll(".slide");
-  if (slides.length === 0) return;
+  const dots = document.querySelectorAll(".hero-dot");
+  if (slides.length === 0 || targetIndex === currentSlideIndex) return;
 
-  // Remove active class from current slide
-  slides[currentSlideIndex].classList.remove("active");
+  // Deactivate previous slide and dot
+  if (slides[currentSlideIndex]) slides[currentSlideIndex].classList.remove("active");
+  if (dots[currentSlideIndex]) dots[currentSlideIndex].classList.remove("active");
 
-  changeCounter++;
+  currentSlideIndex = targetIndex;
 
-  // Check if we should display the Tawa "Coming Soon" slide (every 5th transition)
-  if (changeCounter % 5 === 0) {
-    // Show Tawa slide (last element in DOM)
-    currentSlideIndex = slides.length - 1;
-  } else {
-    // Regular rotation (excluding the Tawa slide)
-    let nextIndex = Math.floor(Math.random() * (slides.length - 1));
-    // Prevent duplicate consecutive slides
-    if (nextIndex === currentSlideIndex && slides.length > 2) {
-      nextIndex = (nextIndex + 1) % (slides.length - 1);
-    }
-    currentSlideIndex = nextIndex;
+  // Activate new slide and dot
+  if (slides[currentSlideIndex]) slides[currentSlideIndex].classList.add("active");
+  if (dots[currentSlideIndex]) dots[currentSlideIndex].classList.add("active");
+
+  // Animate dynamic text
+  updateHeroText(currentSlideIndex, true);
+}
+
+function nextSlide() {
+  const total = HERO_SLIDES.length;
+  const nextIndex = (currentSlideIndex + 1) % total;
+  goToSlide(nextIndex);
+}
+
+function updateHeroText(slideIndex, animated = true) {
+  const wrap = document.getElementById("hero-content-wrap");
+  const badge = document.getElementById("hero-badge");
+  const titleEn = document.getElementById("hero-title-en");
+  const titleUr = document.getElementById("hero-title-ur");
+  const subEn = document.getElementById("hero-subtitle-en");
+  const subUr = document.getElementById("hero-subtitle-ur");
+
+  const data = HERO_SLIDES[slideIndex];
+  if (!data) return;
+
+  if (!animated || !wrap) {
+    if (badge) badge.textContent = data.badge;
+    if (titleEn) titleEn.textContent = data.titleEn;
+    if (titleUr) titleUr.textContent = data.titleUr;
+    if (subEn) subEn.textContent = data.subEn;
+    if (subUr) subUr.textContent = data.subUr;
+    return;
   }
 
-  slides[currentSlideIndex].classList.add("active");
+  // Smooth cinematic text exit
+  wrap.classList.remove("slide-in");
+  wrap.classList.add("slide-out");
+
+  setTimeout(() => {
+    if (badge) badge.textContent = data.badge;
+    if (titleEn) titleEn.textContent = data.titleEn;
+    if (titleUr) titleUr.textContent = data.titleUr;
+    if (subEn) subEn.textContent = data.subEn;
+    if (subUr) subUr.textContent = data.subUr;
+
+    // Smooth staggered text entrance
+    wrap.classList.remove("slide-out");
+    wrap.classList.add("slide-in");
+  }, 280);
 }
 
 // 3. CATEGORY SWITCHER & ACCORDION RENDERER
