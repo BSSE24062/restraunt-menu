@@ -2068,7 +2068,24 @@ function closeDishDetails() {
   activeDish = null;
 }
 
-// 5. DOM INITIALIZATION
+// 5. ROYAL PRELOADER LOGIC & DOM INITIALIZATION
+function hidePreloader() {
+  const preloader = document.getElementById("site-preloader");
+  if (!preloader || preloader.classList.contains("preloader-hidden")) return;
+  preloader.classList.add("preloader-hidden");
+  setTimeout(() => {
+    preloader.style.display = "none";
+  }, 700);
+}
+
+// Ensure preloader reveals content gracefully with adequate branding time
+window.addEventListener("load", () => {
+  setTimeout(hidePreloader, 1500);
+});
+
+// Fallback timer ensures page is never blocked
+setTimeout(hidePreloader, 3500);
+
 document.addEventListener("DOMContentLoaded", () => {
   // Initialize slider
   initHeroSlider();
@@ -2096,3 +2113,4 @@ document.addEventListener("DOMContentLoaded", () => {
     card.addEventListener("click", () => handleCategoryClick(categoryId, card));
   });
 });
+

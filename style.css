@@ -100,6 +100,155 @@ body {
 }
 
 /* ==========================================================================
+   ROYAL PRELOADER SCREEN - GLOWING EMBLEM & SMOOTH ENTRANCE
+   ========================================================================== */
+.preloader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at center, #181309 0%, #080808 65%, #020202 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  transition: opacity 0.65s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.65s ease;
+  pointer-events: all;
+}
+
+.preloader-overlay.preloader-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.preloader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  max-width: 420px;
+}
+
+.preloader-logo-wrap {
+  position: relative;
+  width: 155px;
+  height: 155px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.preloader-logo {
+  width: 125px;
+  height: 125px;
+  object-fit: contain;
+  position: relative;
+  z-index: 3;
+  filter: drop-shadow(0 0 16px rgba(204, 164, 59, 0.65)) drop-shadow(0 4px 20px rgba(0, 0, 0, 0.95));
+  animation: preloaderPulse 2.4s ease-in-out infinite alternate;
+}
+
+.preloader-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle, rgba(204, 164, 59, 0.3) 0%, rgba(204, 164, 59, 0.06) 55%, transparent 70%);
+  border-radius: 50%;
+  z-index: 1;
+  animation: preloaderGlowPulse 2.4s ease-in-out infinite alternate;
+}
+
+.preloader-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 2px dashed rgba(204, 164, 59, 0.35);
+  border-top-color: #ffd875;
+  border-right-color: var(--color-gold-primary);
+  z-index: 2;
+  animation: preloaderRotate 8s linear infinite;
+}
+
+.preloader-text-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.preloader-title {
+  font-family: var(--font-royal);
+  font-size: 1.45rem;
+  letter-spacing: 3.5px;
+  color: var(--color-gold-primary);
+  text-shadow: 0 0 16px rgba(204, 164, 59, 0.45);
+  margin: 0;
+}
+
+.preloader-subtitle {
+  font-family: var(--font-urdu);
+  font-size: 1.2rem;
+  color: #ffffff;
+  margin: 0;
+  opacity: 0.92;
+}
+
+.preloader-progress-bar {
+  width: 160px;
+  height: 3px;
+  background: rgba(204, 164, 59, 0.18);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 1.1rem;
+  position: relative;
+}
+
+.preloader-progress-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 40%;
+  background: var(--color-gold-gradient);
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(204, 164, 59, 0.85);
+  animation: preloaderProgress 1.6s ease-in-out infinite;
+}
+
+@keyframes preloaderPulse {
+  0% { transform: scale(0.96); filter: drop-shadow(0 0 12px rgba(204, 164, 59, 0.45)); }
+  100% { transform: scale(1.04); filter: drop-shadow(0 0 26px rgba(243, 208, 120, 0.85)); }
+}
+
+@keyframes preloaderGlowPulse {
+  0% { transform: translate(-50%, -50%) scale(0.85); opacity: 0.5; }
+  100% { transform: translate(-50%, -50%) scale(1.15); opacity: 0.95; }
+}
+
+@keyframes preloaderRotate {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes preloaderProgress {
+  0% { left: -40%; width: 30%; }
+  50% { left: 35%; width: 50%; }
+  100% { left: 100%; width: 30%; }
+}
+
+/* ==========================================================================
    TOP NAVIGATION HEADER - LUXURIOUS & BALANCED
    ========================================================================== */
 header {
@@ -131,18 +280,21 @@ header {
 }
 
 .logo-img {
-  height: 50px;
-  width: 50px;
+  height: 52px;
+  width: 52px;
   border-radius: 50%;
-  border: 2px solid var(--color-gold-primary);
-  object-fit: cover;
-  box-shadow: 0 0 14px rgba(204, 164, 59, 0.38);
+  border: 1.5px solid rgba(204, 164, 59, 0.6);
+  background: radial-gradient(circle, rgba(22, 17, 8, 0.92) 0%, rgba(6, 6, 6, 0.95) 100%);
+  padding: 3px;
+  object-fit: contain;
+  box-shadow: 0 0 16px rgba(204, 164, 59, 0.4);
   transition: var(--transition-smooth);
   flex-shrink: 0;
 }
 
 .logo-img:hover {
-  transform: scale(1.06);
+  transform: scale(1.08);
+  border-color: var(--color-gold-light);
   box-shadow: var(--shadow-gold-glow-hover);
 }
 
